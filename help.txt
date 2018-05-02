@@ -1,0 +1,9 @@
+
+Editor help text
+Usage: edit <file to edit> <options>
+
+Option                  Descriptions
+-T <#cols>              Set width of a tab to #cols columns
+-t                      Auto save on exit, don't prompt
+-M <LINE,COLUMN>        Start at line LINE, column COLUMN
+-b                      Use bold font
