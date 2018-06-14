@@ -146,11 +146,11 @@
                               draw_dialog_win(dialog,max_x,savefile);
                               char answ = wgetch(dialog);
                               if(answ == 'n' ||  answ == 'N'){   endwin(); exit(3); }
-                              else if(answ == CTRL('w')){  touchwin(stdscr);   continue;}
+                              else if(answ == 'w'|| answ == 'W'){  touchwin(stdscr);   continue;}
                               else return;
          
                             }
-                          return; 
+                        else return; 
                 } 
     			break;
      
