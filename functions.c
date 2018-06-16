@@ -144,13 +144,18 @@
                               noecho();
                               wmove(dialog, 0, 0);
                               draw_dialog_win(dialog,max_x,savefile);
-                              char answ = wgetch(dialog);
-                              if(answ == 'n' ||  answ == 'N'){   endwin(); exit(3); }
-                              else if(answ == 'w'|| answ == 'W'){  touchwin(stdscr);   continue;}
-                              else return;
+                              char answ;			     
+ 			      do{
+			            
+                                    answ = wgetch(dialog);
+                                    if(answ == 'n' ||  answ == 'N'){   endwin(); exit(3); }
+                        	    else if(answ == CTRL('w')|| answ == CTRL('W')){ touchwin(stdscr);   break;}
+                          	    else if(answ == 'y' || answ == 'Y') return;
+			      }
+                              while(answ != 'n' || answ != 'N' || answ != 'w' || answ != 'W' || answ != 'y' || answ != 'Y');
          
                             }
-                        else return; 
+                            else return; 
                 } 
     			break;
      
@@ -221,7 +226,7 @@
     void write_file(FILE* file)
     {
     	int l, n, i;
-    	for (l = 1; l <  number_of_lines; l++) {
+    	for (l = 1; l <  number_of_lines+1; l++) {
     		n = lineLength(l);
     		for (i = 0; i < n; i++)
     			putc(mvinch(l, i) & A_CHARTEXT, file);
