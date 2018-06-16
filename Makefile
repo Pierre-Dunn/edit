@@ -13,6 +13,6 @@ $(TARGET): main.o functions.o libparser.a
 	gcc -o $(TARGET) main.o functions.o -lcurses -L. -lparser 
 clean:
 	rm -rf *.o
-.PHONY: clean
+.PHONY: clean all
 
 
